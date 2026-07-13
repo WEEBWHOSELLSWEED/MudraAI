@@ -1,0 +1,18 @@
+# Ignore raw videos
+data/raw/
+
+# Python
+__pycache__/
+*.pyc
+
+# Models
+*.pt
+*.pth
+*.h5
+
+# Virtual environments
+venv/
+.env
+
+# VSCode
+.vscode/
