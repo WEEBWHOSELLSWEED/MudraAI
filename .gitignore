@@ -11,8 +11,15 @@ __pycache__/
 *.h5
 
 # Virtual environments
+.venv/
 venv/
 .env
 
 # VSCode
 .vscode/
+
+# Landmark dataset
+data/landmarks/
+
+# MediaPipe model
+*.task
