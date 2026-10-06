@@ -1,14 +1,22 @@
 FROM python:3.10-slim
 
-# Install minimal OS runtime libraries required by OpenCV and MediaPipe
+# Install system dependencies required by OpenCV and MediaPipe on Linux
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    libgl1 \
     libglib2.0-0 \
     libgomp1 \
+    libxcb1 \
+    libx11-6 \
+    libxext6 \
+    libxrender1 \
+    libxcb-render0 \
+    libxcb-shape0 \
+    libxcb-xfixes0 \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
-# Install Python dependencies first for caching
+# Copy requirements and install Python dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
@@ -18,5 +26,5 @@ COPY . .
 # Expose default port
 EXPOSE 5000
 
-# Run MudraAI with dynamic container port support
+# Start MudraAI
 CMD ["python", "app.py"]
