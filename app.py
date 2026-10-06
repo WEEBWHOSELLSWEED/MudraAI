@@ -12,7 +12,7 @@ warnings.filterwarnings("ignore", message="SymbolDatabase.GetPrototype() is depr
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
-socketio = SocketIO(app, cors_allowed_origins="*")
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode='threading')
 
 import os
 # Load model (Prefer improved, fallback to baseline)
@@ -104,9 +104,12 @@ def handle_image(data_url):
                         emit('prediction', {'text': predicted_character, 'confidence': float(confidence)})
                     except Exception as e:
                         print("Prediction Error:", e)
+        else:
+            emit('prediction', {'text': '—', 'confidence': 0.0})
 
     except Exception as e:
         print("Error processing image:", e)
+        emit('prediction', {'text': '—', 'confidence': 0.0})
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
