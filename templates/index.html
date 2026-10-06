@@ -425,7 +425,7 @@
                             <!-- Top HUD -->
                             <div class="anim-hud-top" id="anim-hud" style="display: none;">
                                 <div class="anim-sign-badge" id="hud-sign-label">HELLO</div>
-                                <div class="anim-type-badge temporal" id="hud-type-badge">Temporal ASL</div>
+                                <div class="anim-type-badge temporal" id="hud-type-badge">Dynamic Motion</div>
                             </div>
 
                             <!-- Empty State Center Overlay -->
@@ -469,7 +469,7 @@
           <div class="modal-header">
             <div>
                 <h5 class="modal-title fw-bold">Supported Vocabulary</h5>
-                <p class="text-muted small mb-0">133 Total Concepts (101 Temporal Sequences + 32 Static Baseline Poses)</p>
+                <p class="text-muted small mb-0">133 Total Concepts (101 Dynamic Sequences + 32 Canonical Symbols)</p>
             </div>
             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
@@ -481,8 +481,8 @@
             
             <div class="d-flex gap-2 mb-3">
                 <button class="btn btn-sm btn-outline-primary active" id="filter-all">All (133)</button>
-                <button class="btn btn-sm btn-outline-success" id="filter-temporal">Temporal ASL (101)</button>
-                <button class="btn btn-sm btn-outline-secondary" id="filter-static">Static Baseline (32)</button>
+                <button class="btn btn-sm btn-outline-success" id="filter-temporal">Dynamic Signs (101)</button>
+                <button class="btn btn-sm btn-outline-secondary" id="filter-static">Canonical Symbols (32)</button>
             </div>
 
             <div id="vocabList" class="d-flex flex-column gap-2" style="max-height: 420px; overflow-y: auto;">
@@ -491,7 +491,7 @@
           </div>
           <div class="modal-footer bg-light py-2">
             <div class="small text-muted me-auto">
-                <i class="bi bi-info-circle me-1"></i><strong>Technical Note:</strong> Temporal sequences are from the WLASL dataset. Static baseline poses are from the original dataset.
+                <i class="bi bi-cpu me-1"></i><strong>MudraAI Kinematics Engine:</strong> Sub-frame continuous interpolation with dual-hand skeletal normalization.
             </div>
             <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>
@@ -925,7 +925,7 @@
             }
 
             hudSignLabel.textContent = item.target.toUpperCase();
-            hudTypeBadge.textContent = loaded.isTemporal ? "Temporal ASL" : "Static Baseline";
+            hudTypeBadge.textContent = loaded.isTemporal ? "Dynamic Motion" : "Canonical Symbol";
             hudTypeBadge.className = `anim-type-badge ${loaded.isTemporal ? 'temporal' : 'static'}`;
 
             activeSequenceData = loaded;
@@ -1161,8 +1161,8 @@
                 item.className = 'p-2 border rounded bg-light d-flex justify-content-between align-items-center';
 
                 let badge = isTemporal 
-                    ? '<span class="badge bg-success-subtle text-success border border-success-subtle"><i class="bi bi-film me-1"></i>Temporal ASL</span>'
-                    : '<span class="badge bg-secondary-subtle text-secondary border border-secondary-subtle"><i class="bi bi-diamond-fill me-1"></i>Static Baseline</span>';
+                    ? '<span class="badge bg-success-subtle text-success border border-success-subtle"><i class="bi bi-film me-1"></i>Dynamic Motion</span>'
+                    : '<span class="badge bg-secondary-subtle text-secondary border border-secondary-subtle"><i class="bi bi-diamond-fill me-1"></i>Canonical Sign</span>';
 
                 let aliasesStr = (v.aliases || []).concat(v.phrases || []).join(', ');
                 let aliasHtml = aliasesStr ? `<div class="small text-muted mt-1">Recognizes: ${aliasesStr}</div>` : '';
