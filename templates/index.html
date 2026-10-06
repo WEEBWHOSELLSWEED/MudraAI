@@ -96,11 +96,12 @@
             border: 1px solid #1e293b;
         }
 
-        #video-feed {
+        #webcam {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
+            transform: scaleX(-1);
         }
 
         #skeleton-canvas {
@@ -338,9 +339,8 @@
                         
                         <!-- Webcam Feed -->
                         <div class="media-container shadow-sm">
-                            <video id="webcam" autoplay playsinline muted style="display: none;"></video>
+                            <video id="webcam" autoplay playsinline muted></video>
                             <canvas id="hidden-canvas" style="display: none;"></canvas>
-                            <img id="video-feed" alt="" />
                             
                             <!-- Status Indicator -->
                             <div class="status-badge" id="cam-status">
@@ -642,16 +642,12 @@
             if (camInterval) clearInterval(camInterval);
             camInterval = setInterval(() => {
                 if (!isCameraActive || video.paused || video.ended) return;
-                hiddenCanvas.width = video.videoWidth || 640;
-                hiddenCanvas.height = video.videoHeight || 480;
-                hCtx.drawImage(video, 0, 0, hiddenCanvas.width, hiddenCanvas.height);
-                const dataUrl = hiddenCanvas.toDataURL('image/jpeg', 0.6); 
+                hiddenCanvas.width = 320;
+                hiddenCanvas.height = 240;
+                hCtx.drawImage(video, 0, 0, 320, 240);
+                const dataUrl = hiddenCanvas.toDataURL('image/jpeg', 0.5); 
                 socket.emit('image', dataUrl);
-            }, 140);
-        });
-
-        socket.on('processed_image', dataUrl => {
-            if(isCameraActive) videoFeed.src = dataUrl;
+            }, 120);
         });
 
         socket.on('prediction', data => {
@@ -855,47 +851,67 @@
         }
 
         function computeSequenceTransform(frames) {
-            let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
-            let count = 0;
+            let lhMinX = Infinity, lhMaxX = -Infinity, lhMinY = Infinity, lhMaxY = -Infinity;
+            let rhMinX = Infinity, rhMaxX = -Infinity, rhMinY = Infinity, rhMaxY = -Infinity;
+            let lhCount = 0, rhCount = 0;
+            let firstActive = -1, lastActive = -1;
 
-            frames.forEach(f => {
-                if (isHandPresent(f, 0)) {
+            frames.forEach((f, fIdx) => {
+                let lhP = isHandPresent(f, 0);
+                let rhP = isHandPresent(f, 63);
+                if (lhP || rhP) {
+                    if (firstActive === -1) firstActive = fIdx;
+                    lastActive = fIdx;
+                }
+                if (lhP) {
                     for (let i = 0; i < 21; i++) {
                         let x = f[i*3], y = f[i*3+1];
-                        if (x < minX) minX = x;
-                        if (x > maxX) maxX = x;
-                        if (y < minY) minY = y;
-                        if (y > maxY) maxY = y;
-                        count++;
+                        if (x < lhMinX) lhMinX = x;
+                        if (x > lhMaxX) lhMaxX = x;
+                        if (y < lhMinY) lhMinY = y;
+                        if (y > lhMaxY) lhMaxY = y;
+                        lhCount++;
                     }
                 }
-                if (isHandPresent(f, 63)) {
+                if (rhP) {
                     for (let i = 0; i < 21; i++) {
                         let x = f[63 + i*3], y = f[63 + i*3+1];
-                        if (x < minX) minX = x;
-                        if (x > maxX) maxX = x;
-                        if (y < minY) minY = y;
-                        if (y > maxY) maxY = y;
-                        count++;
+                        if (x < rhMinX) rhMinX = x;
+                        if (x > rhMaxX) rhMaxX = x;
+                        if (y < rhMinY) rhMinY = y;
+                        if (y > rhMaxY) rhMaxY = y;
+                        rhCount++;
                     }
                 }
             });
 
-            if (count === 0 || minX >= maxX || minY >= maxY) {
-                minX = -1; maxX = 1; minY = -1; maxY = 1;
-            }
+            if (firstActive === -1) { firstActive = 0; lastActive = frames.length - 1; }
 
-            const margin = 50;
-            const spanX = maxX - minX;
-            const spanY = maxY - minY;
-            const scale = Math.min((displayW - margin*2) / (spanX || 1), (displayH - margin*2) / (spanY || 1));
-            const centerX = (minX + maxX) / 2;
-            const centerY = (minY + maxY) / 2;
+            let bothHands = (lhCount > 0 && rhCount > 0);
+
+            let lhSpanX = (lhCount > 0) ? (lhMaxX - lhMinX) : 0.35;
+            let lhSpanY = (lhCount > 0) ? (lhMaxY - lhMinY) : 0.35;
+            let rhSpanX = (rhCount > 0) ? (rhMaxX - rhMinX) : 0.35;
+            let rhSpanY = (rhCount > 0) ? (rhMaxY - rhMinY) : 0.35;
+
+            let maxSpanX = Math.max(lhSpanX, rhSpanX, 0.2);
+            let maxSpanY = Math.max(lhSpanY, rhSpanY, 0.2);
+
+            let availW = bothHands ? (displayW * 0.42) : (displayW - 120);
+            let availH = displayH - 120;
+
+            let scale = Math.min(availW / maxSpanX, availH / maxSpanY);
+            scale = Math.min(Math.max(scale, 180), 850);
 
             return {
-                scale,
-                centerX,
-                centerY,
+                scale: scale,
+                bothHands: bothHands,
+                firstActive: firstActive,
+                lastActive: lastActive,
+                lhCenterX: lhCount > 0 ? (lhMinX + lhMaxX) / 2 : 0,
+                lhCenterY: lhCount > 0 ? (lhMinY + lhMaxY) / 2 : 0,
+                rhCenterX: rhCount > 0 ? (rhMinX + rhMaxX) / 2 : 0,
+                rhCenterY: rhCount > 0 ? (rhMinY + rhMaxY) / 2 : 0,
                 canvasCenterX: displayW / 2,
                 canvasCenterY: displayH / 2
             };
@@ -934,14 +950,14 @@
 
             if (loaded.isTemporal) {
                 currentTransform = computeSequenceTransform(loaded.data);
-                // 30 frames at ~35ms = ~1.1s duration
-                currentSignDurationMs = loaded.data.length * 36;
+                const activeFrames = Math.max(currentTransform.lastActive - currentTransform.firstActive + 1, 10);
+                currentSignDurationMs = activeFrames * 42;
                 animStartTime = performance.now();
                 if (animationFrameId) cancelAnimationFrame(animationFrameId);
                 animationFrameId = requestAnimationFrame(renderSmoothAnimationLoop);
             } else {
                 renderStaticPose(loaded.data);
-                animProgressText.textContent = `Sign ${currentQueueIndex + 1} of ${playQueue.length}: ${item.target} (Static Baseline)`;
+                animProgressText.textContent = `Sign ${currentQueueIndex + 1} of ${playQueue.length}: ${item.target} (Canonical)`;
                 animProgressFill.style.width = "100%";
                 
                 setTimeout(() => {
@@ -949,7 +965,7 @@
                         currentQueueIndex++;
                         startQueueItem();
                     }
-                }, 1200);
+                }, 1300);
             }
         }
 
@@ -972,26 +988,34 @@
             const elapsed = now - animStartTime;
             const progress = Math.min(elapsed / currentSignDurationMs, 1.0);
             const frames = activeSequenceData.data;
-            const totalFrames = frames.length;
+            const t = currentTransform;
 
-            const floatIndex = progress * (totalFrames - 1);
+            const startF = t.firstActive;
+            const endF = t.lastActive;
+            const activeRange = Math.max(endF - startF, 1);
+
+            const floatIndex = startF + progress * activeRange;
             const fIdx1 = Math.floor(floatIndex);
-            const fIdx2 = Math.min(fIdx1 + 1, totalFrames - 1);
+            const fIdx2 = Math.min(fIdx1 + 1, endF);
             const subAlpha = floatIndex - fIdx1;
 
             const interpolated = interpolateFrame(frames[fIdx1], frames[fIdx2], subAlpha);
-            drawTemporalFrame(interpolated, currentTransform);
+            drawTemporalFrame(interpolated, t);
 
             // Progress Update
-            const displayFrame = Math.min(Math.floor(floatIndex) + 1, totalFrames);
+            const displayFrame = Math.min(Math.floor(progress * (endF - startF + 1)) + 1, (endF - startF + 1));
             animProgressFill.style.width = `${progress * 100}%`;
-            animProgressText.textContent = `Sign ${currentQueueIndex + 1} of ${playQueue.length}: ${playQueue[currentQueueIndex].target} — Frame ${displayFrame} / ${totalFrames}`;
+            animProgressText.textContent = `Sign ${currentQueueIndex + 1} of ${playQueue.length}: ${playQueue[currentQueueIndex].target} (${displayFrame} / ${endF - startF + 1})`;
 
             if (progress < 1.0) {
                 animationFrameId = requestAnimationFrame(renderSmoothAnimationLoop);
             } else {
-                currentQueueIndex++;
-                startQueueItem();
+                setTimeout(() => {
+                    if (isPlaying) {
+                        currentQueueIndex++;
+                        startQueueItem();
+                    }
+                }, 250);
             }
         }
 
@@ -1034,27 +1058,34 @@
         function drawTemporalFrame(frame, t) {
             sCtx.clearRect(0, 0, displayW, displayH);
 
-            // Left Hand (0..62)
-            if (isHandPresent(frame, 0)) {
+            let lhActive = isHandPresent(frame, 0);
+            let rhActive = isHandPresent(frame, 63);
+
+            let lateralOffset = t.bothHands ? Math.min(displayW * 0.22, 110) : 0;
+
+            // Left Hand (0..62) - Blue
+            if (lhActive) {
                 let lhPoints = [];
+                let cx = t.bothHands ? (t.canvasCenterX - lateralOffset) : t.canvasCenterX;
                 for (let i = 0; i < 21; i++) {
                     let x = frame[i*3], y = frame[i*3+1];
                     lhPoints.push({
-                        x: t.canvasCenterX + (x - t.centerX) * t.scale,
-                        y: t.canvasCenterY + (y - t.centerY) * t.scale
+                        x: cx + (x - t.lhCenterX) * t.scale,
+                        y: t.canvasCenterY + (y - t.lhCenterY) * t.scale
                     });
                 }
                 drawHandSkeleton(sCtx, lhPoints, '#3b82f6', '#60a5fa', 4.5);
             }
 
-            // Right Hand (63..125)
-            if (isHandPresent(frame, 63)) {
+            // Right Hand (63..125) - Green
+            if (rhActive) {
                 let rhPoints = [];
+                let cx = t.bothHands ? (t.canvasCenterX + lateralOffset) : t.canvasCenterX;
                 for (let i = 0; i < 21; i++) {
                     let x = frame[63 + i*3], y = frame[63 + i*3+1];
                     rhPoints.push({
-                        x: t.canvasCenterX + (x - t.centerX) * t.scale,
-                        y: t.canvasCenterY + (y - t.centerY) * t.scale
+                        x: cx + (x - t.rhCenterX) * t.scale,
+                        y: t.canvasCenterY + (y - t.rhCenterY) * t.scale
                     });
                 }
                 drawHandSkeleton(sCtx, rhPoints, '#10b981', '#34d399', 4.5);
@@ -1066,22 +1097,25 @@
             if (!features || features.length < 42) return;
 
             let pts = [];
-            let maxX = 0, maxY = 0;
+            let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
             for(let i = 0; i < 21; i++){
                 let x = features[i*2], y = features[i*2+1];
                 pts.push({ x, y });
+                if(x < minX) minX = x;
                 if(x > maxX) maxX = x;
+                if(y < minY) minY = y;
                 if(y > maxY) maxY = y;
             }
 
-            const margin = 50;
-            const scale = Math.min((displayW - margin*2) / (maxX+0.001), (displayH - margin*2) / (maxY+0.001));
-            const offsetX = (displayW - maxX*scale) / 2;
-            const offsetY = (displayH - maxY*scale) / 2;
+            const spanX = Math.max(maxX - minX, 0.1);
+            const spanY = Math.max(maxY - minY, 0.1);
+            const scale = Math.min((displayW - 140) / spanX, (displayH - 140) / spanY);
+            const centerX = (minX + maxX) / 2;
+            const centerY = (minY + maxY) / 2;
 
             let screenPoints = pts.map(p => ({
-                x: p.x * scale + offsetX,
-                y: p.y * scale + offsetY
+                x: (displayW / 2) + (p.x - centerX) * scale,
+                y: (displayH / 2) + (p.y - centerY) * scale
             }));
 
             drawHandSkeleton(sCtx, screenPoints, '#10b981', '#34d399', 4.5);

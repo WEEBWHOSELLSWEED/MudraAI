@@ -95,25 +95,15 @@ def handle_image(data_url):
                 x2 = int(max(x_) * W) - 10
                 y2 = int(max(y_) * H) - 10
 
-                # Simple custom drawing since drawing_utils is missing
-                cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 0), 4)
-
                 if model is not None:
                     try:
                         prediction = model.predict([np.asarray(data_aux)])
                         prediction_proba = model.predict_proba([np.asarray(data_aux)])
                         confidence = max(prediction_proba[0])
                         predicted_character = labels_dict[int(prediction[0])]
-                        
                         emit('prediction', {'text': predicted_character, 'confidence': float(confidence)})
-                        
-                        cv2.putText(frame, f"{predicted_character} ({confidence*100:.2f}%)", (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 1.3, (0, 0, 0), 3, cv2.LINE_AA)
                     except Exception as e:
                         print("Prediction Error:", e)
-
-        ret, buffer = cv2.imencode('.jpg', frame)
-        frame_encoded = base64.b64encode(buffer).decode('utf-8')
-        emit('processed_image', 'data:image/jpeg;base64,' + frame_encoded)
 
     except Exception as e:
         print("Error processing image:", e)
