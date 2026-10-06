@@ -1,14 +1,17 @@
 FROM python:3.10-slim
 
-# Install system dependencies required by OpenCV and MediaPipe on Linux
+# Install system dependencies required by OpenCV and MediaPipe Tasks API on Linux
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    libegl1 \
     libgl1 \
+    libgles2 \
     libglib2.0-0 \
     libgomp1 \
-    libxcb1 \
+    libsm6 \
     libx11-6 \
     libxext6 \
     libxrender1 \
+    libxcb1 \
     libxcb-render0 \
     libxcb-shape0 \
     libxcb-xfixes0 \
