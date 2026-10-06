@@ -13,8 +13,11 @@ ENV/
 # Data and Models
 data/
 data.pickle
-# Note: model.p (3.8MB) is NOT ignored by default so the web app can work when cloned. 
-# If you train larger models in the future, you may want to add model.p here and use Git LFS.
+*.jpg
+*.jpeg
+*.png
+!static/**
+# Note: model.p (3.8MB) and improved_model.p are NOT ignored so web app can run immediately when cloned.
 
 # IDEs and Editors
 .idea/

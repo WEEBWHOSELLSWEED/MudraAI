@@ -1,0 +1,1113 @@
+{
+  "Hello": {
+    "source": "MudraAI_OLD_Backup",
+    "files_count": 30,
+    "shape": [
+      45,
+      126
+    ],
+    "frames": 45,
+    "dim": 126,
+    "hands_type": "absolute_mediapipe_126"
+  },
+  "Yes": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 7,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Accident": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 7,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Africa": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 6,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "All": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 4,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Apple": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 6,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Basketball": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 7,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Bed": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 6,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Before": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 8,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Bird": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 6,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Birthday": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 2,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Black": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 5,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Blue": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 5,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Book": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 4,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Bowling": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 7,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Brown": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 5,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "But": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 3,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Can": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 5,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Candy": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 7,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Chair": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 4,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Change": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 7,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Cheat": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 4,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "City": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 4,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Clothes": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 3,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Color": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 5,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Computer": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 10,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Cook": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 4,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Cool": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 9,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Corn": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 7,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Cousin": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 7,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Cow": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 6,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Dance": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 4,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Dark": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 7,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Deaf": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 7,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Decide": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 4,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Doctor": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 5,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Dog": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 6,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Drink": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 6,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Eat": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 4,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Enjoy": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 5,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Family": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 6,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Fine": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 5,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Finish": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 5,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Fish": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 5,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Forget": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 4,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Full": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 5,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Give": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 6,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Go": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 6,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Graduate": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 6,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Hat": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 5,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Hearing": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 6,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Help": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 5,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Hot": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 7,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "How": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 6,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Jacket": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 5,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Kiss": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 5,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Language": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 6,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Last": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 4,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Later": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 7,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Letter": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 6,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Like": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 6,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Man": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 7,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Many": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 6,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Medicine": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 5,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Meet": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 4,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Mother": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 6,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Need": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 4,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "No": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 6,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Now": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 5,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Orange": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 6,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Paint": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 4,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Paper": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 6,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Pink": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 6,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Pizza": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 7,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Play": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 7,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Pull": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 6,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Purple": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 5,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Right": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 5,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Same": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 5,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "School": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 7,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Secretary": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 5,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Shirt": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 6,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Short": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 7,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Son": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 4,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Study": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 5,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Table": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 3,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Tall": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 8,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Tell": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 3,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Thanksgiving": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 7,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Thin": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 10,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Thursday": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 4,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Time": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 4,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Walk": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 5,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Want": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 6,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "What": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 7,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "White": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 7,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Who": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 9,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Woman": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 6,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Work": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 5,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Wrong": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 5,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  },
+  "Year": {
+    "source": "WLASL_asl-recognizer",
+    "files_count": 5,
+    "shape": [
+      30,
+      126
+    ],
+    "frames": 30,
+    "dim": 126,
+    "hands_type": "wrist_relative_126"
+  }
+}

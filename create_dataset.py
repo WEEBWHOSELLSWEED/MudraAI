@@ -14,14 +14,20 @@ mp_drawing_styles = mp.solutions.drawing_styles  # Predefined drawing styles for
 hands = mp_hands.Hands(static_image_mode=True, min_detection_confidence=0.3)
 
 # Define the directory where the dataset is stored
-DATA_DIR = './data'
+DATA_DIR = os.environ.get('DATA_DIR', './data')
+if not os.path.exists(DATA_DIR):
+    if os.path.exists(r"D:\datasets\handsign_dataset\data"):
+        DATA_DIR = r"D:\datasets\handsign_dataset\data"
+    else:
+        print(f"[!] Dataset folder '{DATA_DIR}' not found. Please specify DATA_DIR or place images in './data'.")
 
 # Initialize lists to store data and labels
 data = []  # List to store processed landmark data
 labels = []  # List to store corresponding labels for each data entry
 
 # Loop through each class directory in the dataset directory
-for dir_ in os.listdir(DATA_DIR):
+if os.path.exists(DATA_DIR):
+    for dir_ in os.listdir(DATA_DIR):
     # Loop through each image in the current class directory
     for img_path in os.listdir(os.path.join(DATA_DIR, dir_)):
         data_aux = []  # Auxiliary list to store normalized landmark coordinates for the current image

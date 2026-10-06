@@ -1,0 +1,1050 @@
+{
+  "Hello": {
+    "label": "Hello",
+    "type": "temporal",
+    "aliases": [
+      "hi",
+      "hey",
+      "hiya",
+      "howdy"
+    ],
+    "phrases": [
+      "hello there",
+      "hey there",
+      "hi there"
+    ]
+  },
+  "Please": {
+    "label": "Please",
+    "type": "static",
+    "aliases": [
+      "pls",
+      "plz",
+      "kindly"
+    ],
+    "phrases": [
+      "could you please",
+      "can you please",
+      "if you please"
+    ]
+  },
+  "Sorry": {
+    "label": "Sorry",
+    "type": "static",
+    "aliases": [
+      "sry",
+      "apologies"
+    ],
+    "phrases": [
+      "i am sorry",
+      "im sorry",
+      "my apologies",
+      "so sorry",
+      "very sorry"
+    ]
+  },
+  "Thank You": {
+    "label": "Thank You",
+    "type": "static",
+    "aliases": [
+      "thanks",
+      "thx",
+      "ty",
+      "thank u"
+    ],
+    "phrases": [
+      "thank you very much",
+      "thanks a lot",
+      "many thanks",
+      "thank you so much"
+    ]
+  },
+  "Done": {
+    "label": "Done",
+    "type": "static",
+    "aliases": [
+      "finished",
+      "complete",
+      "completed"
+    ],
+    "phrases": [
+      "i am done",
+      "all done",
+      "its done"
+    ]
+  },
+  "I Love you": {
+    "label": "I Love you",
+    "type": "static",
+    "aliases": [
+      "ily"
+    ],
+    "phrases": [
+      "i love u",
+      "love you",
+      "love u",
+      "i love you so much"
+    ]
+  },
+  "You are welcome.": {
+    "label": "You are welcome.",
+    "type": "static",
+    "aliases": [
+      "yw",
+      "welcome"
+    ],
+    "phrases": [
+      "youre welcome",
+      "you are welcome",
+      "ur welcome"
+    ]
+  },
+  "A": {
+    "label": "A",
+    "type": "static",
+    "aliases": [],
+    "phrases": []
+  },
+  "B": {
+    "label": "B",
+    "type": "static",
+    "aliases": [],
+    "phrases": []
+  },
+  "C": {
+    "label": "C",
+    "type": "static",
+    "aliases": [],
+    "phrases": []
+  },
+  "D": {
+    "label": "D",
+    "type": "static",
+    "aliases": [],
+    "phrases": []
+  },
+  "E": {
+    "label": "E",
+    "type": "static",
+    "aliases": [],
+    "phrases": []
+  },
+  "F": {
+    "label": "F",
+    "type": "static",
+    "aliases": [],
+    "phrases": []
+  },
+  "G": {
+    "label": "G",
+    "type": "static",
+    "aliases": [],
+    "phrases": []
+  },
+  "H": {
+    "label": "H",
+    "type": "static",
+    "aliases": [],
+    "phrases": []
+  },
+  "I": {
+    "label": "I",
+    "type": "static",
+    "aliases": [],
+    "phrases": []
+  },
+  "J": {
+    "label": "J",
+    "type": "static",
+    "aliases": [],
+    "phrases": []
+  },
+  "K": {
+    "label": "K",
+    "type": "static",
+    "aliases": [],
+    "phrases": []
+  },
+  "L": {
+    "label": "L",
+    "type": "static",
+    "aliases": [],
+    "phrases": []
+  },
+  "M": {
+    "label": "M",
+    "type": "static",
+    "aliases": [],
+    "phrases": []
+  },
+  "N": {
+    "label": "N",
+    "type": "static",
+    "aliases": [],
+    "phrases": []
+  },
+  "O": {
+    "label": "O",
+    "type": "static",
+    "aliases": [],
+    "phrases": []
+  },
+  "P": {
+    "label": "P",
+    "type": "static",
+    "aliases": [],
+    "phrases": []
+  },
+  "Q": {
+    "label": "Q",
+    "type": "static",
+    "aliases": [],
+    "phrases": []
+  },
+  "R": {
+    "label": "R",
+    "type": "static",
+    "aliases": [],
+    "phrases": []
+  },
+  "S": {
+    "label": "S",
+    "type": "static",
+    "aliases": [],
+    "phrases": []
+  },
+  "T": {
+    "label": "T",
+    "type": "static",
+    "aliases": [],
+    "phrases": []
+  },
+  "U": {
+    "label": "U",
+    "type": "static",
+    "aliases": [],
+    "phrases": []
+  },
+  "V": {
+    "label": "V",
+    "type": "static",
+    "aliases": [],
+    "phrases": []
+  },
+  "W": {
+    "label": "W",
+    "type": "static",
+    "aliases": [],
+    "phrases": []
+  },
+  "X": {
+    "label": "X",
+    "type": "static",
+    "aliases": [],
+    "phrases": []
+  },
+  "Y": {
+    "label": "Y",
+    "type": "static",
+    "aliases": [],
+    "phrases": []
+  },
+  "Z": {
+    "label": "Z",
+    "type": "static",
+    "aliases": [],
+    "phrases": []
+  },
+  "Cousin": {
+    "label": "Cousin",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Cow": {
+    "label": "Cow",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Eat": {
+    "label": "Eat",
+    "type": "temporal",
+    "aliases": [
+      "eating",
+      "food",
+      "dine"
+    ],
+    "phrases": [
+      "eat food",
+      "want to eat"
+    ]
+  },
+  "Same": {
+    "label": "Same",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Year": {
+    "label": "Year",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Candy": {
+    "label": "Candy",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Mother": {
+    "label": "Mother",
+    "type": "temporal",
+    "aliases": [
+      "mom",
+      "mama",
+      "mommy"
+    ],
+    "phrases": [
+      "my mother",
+      "my mom"
+    ]
+  },
+  "Now": {
+    "label": "Now",
+    "type": "temporal",
+    "aliases": [
+      "presently",
+      "right now"
+    ],
+    "phrases": [
+      "right now",
+      "do it now"
+    ]
+  },
+  "Thin": {
+    "label": "Thin",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Thanksgiving": {
+    "label": "Thanksgiving",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Corn": {
+    "label": "Corn",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Purple": {
+    "label": "Purple",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Fine": {
+    "label": "Fine",
+    "type": "temporal",
+    "aliases": [
+      "okay",
+      "ok",
+      "alright"
+    ],
+    "phrases": [
+      "im fine",
+      "doing fine"
+    ]
+  },
+  "Short": {
+    "label": "Short",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "All": {
+    "label": "All",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Like": {
+    "label": "Like",
+    "type": "temporal",
+    "aliases": [
+      "enjoying",
+      "fond of"
+    ],
+    "phrases": [
+      "i like",
+      "do you like"
+    ]
+  },
+  "Deaf": {
+    "label": "Deaf",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Secretary": {
+    "label": "Secretary",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Tell": {
+    "label": "Tell",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Computer": {
+    "label": "Computer",
+    "type": "temporal",
+    "aliases": [
+      "pc",
+      "laptop"
+    ],
+    "phrases": [
+      "on the computer"
+    ]
+  },
+  "Accident": {
+    "label": "Accident",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Pizza": {
+    "label": "Pizza",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Play": {
+    "label": "Play",
+    "type": "temporal",
+    "aliases": [
+      "playing",
+      "game"
+    ],
+    "phrases": [
+      "want to play"
+    ]
+  },
+  "Tall": {
+    "label": "Tall",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Pull": {
+    "label": "Pull",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "White": {
+    "label": "White",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Change": {
+    "label": "Change",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Apple": {
+    "label": "Apple",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Bed": {
+    "label": "Bed",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Give": {
+    "label": "Give",
+    "type": "temporal",
+    "aliases": [
+      "hand over",
+      "provide"
+    ],
+    "phrases": [
+      "give me",
+      "give it to me"
+    ]
+  },
+  "Walk": {
+    "label": "Walk",
+    "type": "temporal",
+    "aliases": [
+      "walking",
+      "stroll"
+    ],
+    "phrases": [
+      "go for a walk"
+    ]
+  },
+  "Bowling": {
+    "label": "Bowling",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Many": {
+    "label": "Many",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Forget": {
+    "label": "Forget",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Brown": {
+    "label": "Brown",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Hot": {
+    "label": "Hot",
+    "type": "temporal",
+    "aliases": [
+      "warm",
+      "burning"
+    ],
+    "phrases": [
+      "it is hot",
+      "very hot"
+    ]
+  },
+  "Cook": {
+    "label": "Cook",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Paint": {
+    "label": "Paint",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Yes": {
+    "label": "Yes",
+    "type": "temporal",
+    "aliases": [
+      "yep",
+      "yup",
+      "yeah",
+      "aye",
+      "sure"
+    ],
+    "phrases": [
+      "yes please",
+      "yes of course"
+    ]
+  },
+  "Want": {
+    "label": "Want",
+    "type": "temporal",
+    "aliases": [
+      "desire",
+      "wishing"
+    ],
+    "phrases": [
+      "i want",
+      "do you want"
+    ]
+  },
+  "City": {
+    "label": "City",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Full": {
+    "label": "Full",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Blue": {
+    "label": "Blue",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Fish": {
+    "label": "Fish",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Shirt": {
+    "label": "Shirt",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Cool": {
+    "label": "Cool",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Cheat": {
+    "label": "Cheat",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Chair": {
+    "label": "Chair",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Doctor": {
+    "label": "Doctor",
+    "type": "temporal",
+    "aliases": [
+      "physician",
+      "dr"
+    ],
+    "phrases": [
+      "see a doctor"
+    ]
+  },
+  "Hearing": {
+    "label": "Hearing",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Later": {
+    "label": "Later",
+    "type": "temporal",
+    "aliases": [
+      "afterwards"
+    ],
+    "phrases": [
+      "see you later"
+    ]
+  },
+  "Medicine": {
+    "label": "Medicine",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Orange": {
+    "label": "Orange",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Man": {
+    "label": "Man",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "No": {
+    "label": "No",
+    "type": "temporal",
+    "aliases": [
+      "nope",
+      "nah",
+      "nay"
+    ],
+    "phrases": [
+      "no thanks",
+      "no thank you"
+    ]
+  },
+  "Africa": {
+    "label": "Africa",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Pink": {
+    "label": "Pink",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Kiss": {
+    "label": "Kiss",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "But": {
+    "label": "But",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Help": {
+    "label": "Help",
+    "type": "temporal",
+    "aliases": [
+      "assist",
+      "aid"
+    ],
+    "phrases": [
+      "help me",
+      "can you help",
+      "need help",
+      "please help me"
+    ]
+  },
+  "Dark": {
+    "label": "Dark",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Time": {
+    "label": "Time",
+    "type": "temporal",
+    "aliases": [
+      "timing",
+      "clock",
+      "hour"
+    ],
+    "phrases": [
+      "what time is it",
+      "what is the time"
+    ]
+  },
+  "School": {
+    "label": "School",
+    "type": "temporal",
+    "aliases": [
+      "college",
+      "university",
+      "class"
+    ],
+    "phrases": [
+      "go to school"
+    ]
+  },
+  "Thursday": {
+    "label": "Thursday",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Hat": {
+    "label": "Hat",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Birthday": {
+    "label": "Birthday",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Jacket": {
+    "label": "Jacket",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Meet": {
+    "label": "Meet",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Need": {
+    "label": "Need",
+    "type": "temporal",
+    "aliases": [
+      "require"
+    ],
+    "phrases": [
+      "i need",
+      "do you need"
+    ]
+  },
+  "Study": {
+    "label": "Study",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Color": {
+    "label": "Color",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Dance": {
+    "label": "Dance",
+    "type": "temporal",
+    "aliases": [
+      "dancing"
+    ],
+    "phrases": [
+      "lets dance"
+    ]
+  },
+  "Basketball": {
+    "label": "Basketball",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Before": {
+    "label": "Before",
+    "type": "temporal",
+    "aliases": [
+      "earlier",
+      "previously"
+    ],
+    "phrases": [
+      "before this"
+    ]
+  },
+  "Clothes": {
+    "label": "Clothes",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Who": {
+    "label": "Who",
+    "type": "temporal",
+    "aliases": [
+      "whom"
+    ],
+    "phrases": [
+      "who is that",
+      "who is it"
+    ]
+  },
+  "Right": {
+    "label": "Right",
+    "type": "temporal",
+    "aliases": [
+      "correct",
+      "true"
+    ],
+    "phrases": [
+      "thats right",
+      "all right"
+    ]
+  },
+  "Letter": {
+    "label": "Letter",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Woman": {
+    "label": "Woman",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "How": {
+    "label": "How",
+    "type": "temporal",
+    "aliases": [
+      "hows"
+    ],
+    "phrases": [
+      "how are you",
+      "how to do"
+    ]
+  },
+  "Black": {
+    "label": "Black",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Family": {
+    "label": "Family",
+    "type": "temporal",
+    "aliases": [
+      "relatives",
+      "household"
+    ],
+    "phrases": [
+      "my family"
+    ]
+  },
+  "Son": {
+    "label": "Son",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Book": {
+    "label": "Book",
+    "type": "temporal",
+    "aliases": [
+      "reading"
+    ],
+    "phrases": [
+      "read a book"
+    ]
+  },
+  "Graduate": {
+    "label": "Graduate",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Work": {
+    "label": "Work",
+    "type": "temporal",
+    "aliases": [
+      "working",
+      "job"
+    ],
+    "phrases": [
+      "go to work",
+      "at work"
+    ]
+  },
+  "What": {
+    "label": "What",
+    "type": "temporal",
+    "aliases": [
+      "whats"
+    ],
+    "phrases": [
+      "what is that",
+      "what is this"
+    ]
+  },
+  "Go": {
+    "label": "Go",
+    "type": "temporal",
+    "aliases": [
+      "leave",
+      "depart"
+    ],
+    "phrases": [
+      "let us go",
+      "lets go"
+    ]
+  },
+  "Wrong": {
+    "label": "Wrong",
+    "type": "temporal",
+    "aliases": [
+      "incorrect",
+      "false"
+    ],
+    "phrases": [
+      "thats wrong"
+    ]
+  },
+  "Language": {
+    "label": "Language",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Table": {
+    "label": "Table",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Finish": {
+    "label": "Finish",
+    "type": "temporal",
+    "aliases": [
+      "finished",
+      "done",
+      "ended"
+    ],
+    "phrases": [
+      "i finished",
+      "all finished"
+    ]
+  },
+  "Enjoy": {
+    "label": "Enjoy",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Paper": {
+    "label": "Paper",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Drink": {
+    "label": "Drink",
+    "type": "temporal",
+    "aliases": [
+      "drinking",
+      "beverage",
+      "water"
+    ],
+    "phrases": [
+      "drink water",
+      "want to drink"
+    ]
+  },
+  "Last": {
+    "label": "Last",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Dog": {
+    "label": "Dog",
+    "type": "temporal",
+    "aliases": [
+      "puppy",
+      "canine"
+    ],
+    "phrases": [
+      "pet the dog"
+    ]
+  },
+  "Can": {
+    "label": "Can",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Bird": {
+    "label": "Bird",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  },
+  "Decide": {
+    "label": "Decide",
+    "type": "temporal",
+    "aliases": [],
+    "phrases": []
+  }
+}

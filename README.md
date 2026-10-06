@@ -1,135 +1,190 @@
-# Realtime Sign Language Translation
+# MudraAI — Bidirectional Sign Language Interpretation Prototype
 
-A real-time application for detecting and recognizing sign language gestures using a webcam feed.
+[![Python 3.9+](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue.svg)](https://www.python.org/downloads/)
+[![Flask](https://img.shields.io/badge/framework-Flask%203.x-green.svg)](https://flask.palletsprojects.com/)
+[![MediaPipe](https://img.shields.io/badge/vision-Google%20MediaPipe-orange.svg)](https://developers.google.com/mediapipe)
+[![Scikit-Learn](https://img.shields.io/badge/ML-Scikit--Learn-yellow.svg)](https://scikit-learn.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Table of Contents
+> **MudraAI** is a real-time bidirectional sign language translation and visualization dashboard. It translates live camera sign gestures into English text and synthesized speech, and converts typed English text into fluid, two-handed 2D skeletal sign language motion.
 
-- [Aim](#aim)
-- [Project Overview](#project-overview)
-- [Demo](#demo)
-- [Features](#features)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-- [Project Report](#project-report)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+---
 
-## Aim
+## 📌 Architecture & System Flow
 
-This project aims to create a sign language translator using machine learning techniques and Python programming. The application utilizes various modules, primarily Mediapipe, Landmark, and Random Forest algorithms to interpret and translate sign language gestures into text or spoken language.
-
-## Project Overview
-
-Sign language is a crucial form of communication for individuals with hearing impairments. This project focuses on bridging the communication gap by creating a tool that can interpret sign language gestures in real-time and convert them into understandable text or speech.
-
-This project leverages Flask for the web interface and TensorFlow/Keras for the machine learning model to recognize sign language gestures in real-time from a webcam feed.
-
-<img src="hand-signs-of-the-ASL-Language.png"  width="60%"/>
-
-> American Sign Language Convention for Alphabets.
-
-<img src="sign%20language%202.jpg"  width="60%"/>
-
-> Custom Sign Language for Words / Sentences.
-
-## Demo
-
-Showcasing a demonstration of the Realtime Sign Language Detection 
+```text
+┌───────────────────────────────────────────────────────────────────────────┐
+│                           FORWARD PIPELINE                                │
+│                     (Camera Sign ──► English Speech)                      │
+└───────────────────────────────────────────────────────────────────────────┘
+   Live Webcam Stream
+          │
+          ▼
+   MediaPipe Vision Tasks (HandLandmarker) ──► 21 Normalized 3D Coordinates
+          │
+          ▼
+   Scikit-Learn MLP Classifier (improved_model.p)
+          │
+          ▼
+   Temporal Sliding-Window Debouncer (5-frame mode filter)
+          │
+          ▼
+   Sentence Builder ──► Web Speech Synthesis API (TTS)
 
 
-
-https://github.com/user-attachments/assets/36d57256-4a54-4977-b54c-4cf615ab5204
-
-
-
-## Features
-* **Real-time sign language recognition**: Captures hand gestures using the Mediapipe library to track landmarks and movements.
-* **Landmark analysis**: Utilizes Landmark module to extract key points and gestures from hand movements.
-* **Machine learning translation**: Employs Random Forest algorithm to classify and interpret gestures into corresponding text.
-* **Text-to-speech**: For better communication the text can be converted to spoken language using the speech synthesis.
-
-## Getting Started
-To get started with the Sign Language Translator, follow these steps:
-
-### Prerequisites
-
-1. **Python**: Provides a vast array of libraries and frameworks for machine learning, computer vision, and data processing.
-2. **TensorFlow**: For building and training machine learning models.
-3. **Scikit-learn**: For implementing the Random Forest algorithm for sign language recognition.
-4. **Numpy**: For numerical computations and data manipulation.
-5. **Mediapipe**: For real-time hand tracking and landmark detection.
-6. **OpenCV**: For video processing and computer vision tasks.
-7. **Flask**: Web framework to develop the application.
-8. **Flask-SocketIO**: Adds low-latency bi-directional communication between clients and the server to Flask applications.
-
-### Installation
-
-1. Clone the repository:
-
-```shell
-git clone https://github.com/uzibytes/sign2text.git
-```
-```shell
-cd sign2text
+┌───────────────────────────────────────────────────────────────────────────┐
+│                           REVERSE PIPELINE                                │
+│                      (Text ──► Skeletal Motion)                           │
+└───────────────────────────────────────────────────────────────────────────┘
+   English Input ("hey pls help me")
+          │
+          ▼
+   Deterministic Normalizer & Greedy Longest-Phrase Matcher
+          │
+   ┌──────┴──────────────────────────────────────┐
+   ▼                                             ▼
+[Help / Dance / Book...]                  [Please / Sorry / A-Z...]
+Temporal Sequence Available? (101 signs)   Static Baseline Fallback (32 signs)
+   │                                             │
+   ▼                                             ▼
+Load JSON Sequence                            Load representatives.json
+   │                                             │
+   ▼                                             ▼
+Sequence-Wide Bounding Box Normalization      Uniform Aspect-Ratio Scaling
+   │                                             │
+   ▼                                             ▼
+Sub-Frame LERP (60/120 FPS requestAnimationFrame)  Static 2D Pose with 1.2s Hold
+   │                                             │
+   └──────────────────────┬──────────────────────┘
+                          ▼
+            HiDPI Canvas Skeleton Renderer
+            (Blue = Left Hand, Green = Right Hand)
 ```
 
-2. Create and activate a virtual environment:
+---
 
-  ```shell
-  python -m venv venv
-  ```
-  ```shell
-  source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-  ```
+## ✨ Key Features
 
-3. Install required libraries:
+1. **Real-Time Camera Recognition (Sign ➔ Text)**
+   - Uses Google MediaPipe Tasks API (`hand_landmarker.task`) running in image stream mode.
+   - 42-dimensional geometric feature vector (21 landmarks relative to hand bounding box).
+   - High-precision Multi-Layer Perceptron (MLP) neural classifier (`improved_model.p`) with Random Forest baseline fallback (`model.p`).
+   - 5-frame temporal sliding-window voting debouncer prevents jitter and duplicate token emissions.
+   - Interactive sentence builder with **Delete**, **Clear**, and **Speak (TTS)** capabilities.
 
-  ```shell
-  pip install -r requirements.txt
-  ```
+2. **Liquid-Smooth 2D Skeletal Animation (Text ➔ Sign)**
+   - **101 authentic temporal motion sequences** from the WLASL dataset with two-handed support.
+   - **32 static baseline fallback poses** (`Please`, `Sorry`, `Thank You`, alphabet `A-Z`).
+   - Continuous sub-frame Linear Interpolation (LERP) rendering at **60/120 FPS**.
+   - Sequence-wide bounding box stabilization: hands never jump or resize abruptly between frames.
+   - Full MediaPipe skeletal topology (distinct wrist, MCP, PIP, DIP connections).
+   - Interactive playback controls: **Play**, **Pause**, **Replay**, and real-time **Frame Progress HUD**.
 
-4. Ensure a webcam is connected to your system.
+3. **High-DPI Responsive Dashboard**
+   - Built with modern Bootstrap 5 and customized dark/light cards.
+   - Native Retina / HiDPI canvas rendering (`window.devicePixelRatio`) with neon luminescence.
+   - Searchable **Supported Vocabulary Modal** (133 concepts) with category filters.
 
-## Usage
+4. **1-Click Local & Public Tunnel Launchers**
+   - Pre-configured 1-click launchers for **Ngrok** and **Cloudflare Tunnel**.
+   - Automatically grabs the public HTTPS link and copies it to your clipboard.
 
-1. Start the Flask application:
-    ```bash
-    python app.py
-    ```
+---
 
-2. Open your web browser and navigate to :
-   ```bash
-    http://127.0.0.1:5000/
-    ```
+## 📊 Supported Vocabulary (133 Concepts)
 
-4. The web interface will display the webcam feed and detected sign language gestures.
+- **101 Temporal ASL Sequences:** `Hello`, `Help`, `Yes`, `No`, `What`, `Who`, `Want`, `Need`, `Like`, `Time`, `Walk`, `Work`, `Wrong`, `Year`, `Book`, `Eat`, `Drink`, `Dance`, `Play`, `Fine`, `Finish`, `Give`, `Go`, `Hot`, `How`, `Mother`, `Family`, `Right`, `Table`, `Thanksgiving`, `Computer`, `Cook`, `Cool`, `Candy`, `Chair`, `Change`, `City`, `Clothes`, `Color`, `Cousin`, `Cow`, `Dark`, `Deaf`, `Decide`, `Doctor`, `Dog`, `Enjoy`, `Forget`, `Full`, `Graduate`, `Hat`, `Hearing`, `Jacket`, `Kiss`, `Language`, `Last`, `Later`, `Letter`, `Man`, `Many`, `Medicine`, `Meet`, `Now`, `Orange`, `Paint`, `Paper`, `Pink`, `Pizza`, `Pull`, `Purple`, `Same`, `School`, `Secretary`, `Shirt`, `Short`, `Son`, `Study`, `Tall`, `Tell`, `Thin`, `Thursday`, `White`, `Woman`, `Accident`, `Africa`, `All`, `Apple`, `Basketball`, `Bed`, `Before`, `Bird`, `Birthday`, `Black`, `Blue`, `Bowling`, `Brown`, `But`, `Can`, `Cheat`.
+- **32 Static Baseline Poses:** `Please`, `Sorry`, `Thank You`, `Done`, `I Love you`, `You are welcome.`, and `A` through `Z`.
 
-## Project Report
-For detailed insights, analysis, and findings, refer to the Project Report provided in the repository or [click here](https://drive.google.com/file/d/1he-xNEdvnj6nGKRLIHwnSalA8uVaDp3C/view?usp=sharing).
+---
 
-## Contributing
-Contributions are welcome! If you'd like to contribute to this project, feel free to open issues, create pull requests, or reach out to discuss potential improvements.
+## 🚀 Quickstart & Installation
 
-## License
-This section states that the Realtime Sign Language Detection Using LSTM Model project is released under the MIT License. It briefly describes the terms and conditions of the license, such as the permission to use, modify, and distribute the project, with appropriate attribution. It provides a link to the full text of the MIT License for further reference.
+### 1. Clone the Repository
+```bash
+git clone https://github.com/<your-username>/MudraAI.git
+cd MudraAI
+```
 
-## Contact
-This is a Final Year B.Tech Project for the session 2020-24. This project is completed under the Guidance of **Dr. Shashi Raj** _(Assistant Professor, Dept. of CSE, Bakhtiyarpur College of Engineering, Patna)_. 
-This is a group project and the members are :
-1. [Ujjwal Raj](https://github.com/uzibytes) - 20105126034 <a href="https://www.linkedin.com/in/uraj/"> <img src="https://img.shields.io/badge/ujjwal-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Connect on LinkedIn"></a>
-2. [Krishna Raj](https://github.com/krishna-raz) - 20105126040 <a href="https://www.linkedin.com/in/iamkrishnaraj/"> <img src="https://img.shields.io/badge/krishna-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Connect on LinkedIn"></a>
-3. [Prashant Kumar](https://github.com/PkThunderBolt) - 20105126043 <a href="https://www.linkedin.com/in/pkprashant566/"> <img src="https://img.shields.io/badge/prashant-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Connect on LinkedIn"></a>
-4. [Rajnish Puri](https://github.com/RajnishPuri) - 20105126031 <a href="https://www.linkedin.com/in/rajnish-puri-804b11209/"> <img src="https://img.shields.io/badge/rajnish-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Connect on LinkedIn"></a>
+### 2. Create and Activate Virtual Environment (Recommended)
+```bash
+# Windows
+python -m venv venv
+.\venv\Scripts\activate
 
+# macOS / Linux
+python3 -m venv venv
+source venv/bin/activate
+```
 
-For any questions or inquiries, feel free to contact.
+### 3. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
 
+### 4. Run the Application
+```bash
+python app.py
+```
+Open **`http://127.0.0.1:5000`** in your browser (Google Chrome, Edge, or Firefox).
 
+---
 
+## ⚡ 1-Click Launchers (Windows)
 
+- **Desktop Launcher:** Double-click `LAUNCH_MUDRAAI.bat`.
+- **Cloudflare Tunnel:** Run `start_cloudflare_tunnel.bat` for an instant zero-signup HTTPS link.
+- **Ngrok Tunnel:** Run `start_ngrok_tunnel.bat` for high-speed tunnel sharing.
 
+---
 
+## 🌐 24/7 Cloud Hosting (Without Keeping Your Laptop On)
 
+You can host MudraAI online for free on **Render.com** or **Railway.app** so anyone can use it anytime:
+
+### Deploying to Render.com (Free Tier)
+1. Push this project to your GitHub account.
+2. Sign up at [Render.com](https://render.com) and click **New + ➔ Web Service**.
+3. Connect your GitHub repository.
+4. Set the following fields:
+   - **Environment:** `Python 3`
+   - **Build Command:** `pip install -r requirements.txt`
+   - **Start Command:** `python app.py`
+5. Click **Create Web Service**. Render will assign you a live, free HTTPS URL (e.g. `https://mudraai.onrender.com`).
+
+---
+
+## 📁 Repository Structure
+
+```text
+MudraAI/
+├── app.py                      # Main Flask application & Socket.IO prediction loop
+├── wsgi.py                     # Production WSGI entry point
+├── Procfile                    # Cloud platform deployment process file
+├── requirements.txt            # Python dependencies
+├── hand_landmarker.task        # MediaPipe Vision Task binary model
+├── improved_model.p            # Trained MLP neural classifier
+├── model.p                     # Baseline Random Forest classifier
+├── static/
+│   ├── vocabulary.json         # 133 concepts with aliases and phrases
+│   ├── representatives.json    # Canonical 42D static poses
+│   └── temporal/               # Pre-processed JSON sequences for fast browser rendering
+├── templates/
+│   └── index.html              # Modern responsive HTML5/Canvas dashboard
+├── temporal_data/              # Discovered 101-class WLASL landmark repository
+├── temporal_dataset_audit.md   # Dataset audit & validation report
+└── LAUNCH_MUDRAAI.bat          # 1-Click launcher script
+```
+
+---
+
+## 🔬 Dataset & Linguistic Transparency
+
+- **Camera Dataset:** Trained on burst-captured single-hand static poses.
+- **Temporal Sequences:** Derived from the verified WLASL-100 (American Sign Language) landmark dataset.
+- **Academic Limitation:** While designed as a student prototype for Indian Sign Language (ISL), the underlying dynamic sequences originate from ASL sources. They are presented honestly as a technical gesture-animation prototype.
+
+---
+
+## 📄 License
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
